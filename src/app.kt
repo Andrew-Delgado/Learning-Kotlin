@@ -31,11 +31,18 @@
 //    println("Hello, ${if (args.isNotEmpty()) args[0] else "Kotlin"}!")
 //}
 
-class Person(val name: String, var isMarried: Boolean)
+class Person(val name: String, var isMarried: Boolean){
+    val isAndrew: Boolean
+        get(){
+            return name == "Andrew"
+        }
+}
 
 fun main(){
     val p1 = Person("Andrew", false)
 
     p1.isMarried = true
     println("Is ${p1.name} married?: ${p1.isMarried}")
+
+    println("Is this andrew?: ${p1.isAndrew}")
 }
