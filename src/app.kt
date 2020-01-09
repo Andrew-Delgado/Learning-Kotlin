@@ -1,3 +1,5 @@
+import javafx.scene.paint.Color.rgb
+
 //data class Person(val name: String,
 //                  val age: Int? = null)
 //
@@ -56,28 +58,48 @@
 //
 //    p1.work()
 //}
+//
+//import java.util.Random
+//
+//class Rectangle(val height: Int, val width: Int){
+//    // Think of it as the state of the class.
+//    val isSquare: Boolean
+//        get() = height == width
+//
+//    override fun toString():String{
+//        return "height: $height, width: $width"
+//    }
+//}
+//
+//fun randRectangle() : Rectangle{
+//    val random = Random()
+//    return Rectangle(random.nextInt(), random.nextInt())
+//}
+//
+//fun main(){
+//    val r1 = Rectangle(5,6)
+//    val r2 = randRectangle()
+//
+//    println(r1.width)
+//    println("r1 is: $r1 \nr2 is: $r2")
+//}
 
-import java.util.Random
+enum class Color(val r: Int, val g: Int, val b: Int){
+    RED(255,0,0), ORANGE(255, 165,0), BLUE(0,0,255);
 
-class Rectangle(val height: Int, val width: Int){
-    // Think of it as the state of the class.
-    val isSquare: Boolean
-        get() = height == width
+    // rgb to decimal
+    fun rgb() = (r * 256 + g) * 256 + b
+}
 
-    override fun toString():String{
-        return "height: $height, width: $width"
+
+fun getMnemonic(color: Color) =
+    when(color){
+        Color.BLUE -> "Battle"
+        Color.RED -> "Richard"
+        Color.ORANGE ->"Of"
     }
-}
-
-fun randRectangle() : Rectangle{
-    val random = Random()
-    return Rectangle(random.nextInt(), random.nextInt())
-}
 
 fun main(){
-    val r1 = Rectangle(5,6)
-    val r2 = randRectangle()
-
-    println(r1.width)
-    println("r1 is: $r1 \nr2 is: $r2")
+    val blue = Color.BLUE
+    println("${getMnemonic(blue)}")
 }
